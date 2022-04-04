@@ -1,0 +1,23 @@
+.grid-container{
+    display: flex;
+    justify-content:cnter;
+    align-items: center;
+}
+
+.grid{
+    width: 1800px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.welcome button{
+    background-color: #454545;
+    border-radius: 10%;
+    height: 250px;
+    width: 350px;
+    color: white;
+    font-size: 45px;
+    margin: 50px;
+    align-items: center;
+}

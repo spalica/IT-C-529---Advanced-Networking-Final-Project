@@ -1,0 +1,10 @@
+- name: test ansible
+  hosts: "{{ hosts }}"
+  gather_facts: false
+  tasks:
+    - ping:
+
+  # hosts: "{{ hosts }}"
+  # gather_facts: false
+  # tasks:
+  #   - ping:

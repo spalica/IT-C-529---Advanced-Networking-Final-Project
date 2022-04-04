@@ -1,0 +1,14 @@
+{% extends "default.html" %}
+{% block body %}
+
+<link rel="stylesheet" href="flexbox.css"/> 
+
+<div class="grid-container">
+    <div class="grid">
+        {% for i in things %}
+        <a class="waves-effect waves-light teal btn"><i class="material-icons left">settings</i>{{ i }}</a>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

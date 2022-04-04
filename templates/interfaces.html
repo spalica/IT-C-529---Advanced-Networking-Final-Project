@@ -1,0 +1,44 @@
+{% extends "default.html" %}
+{% block body %}
+<ul class="collection">
+    {% for interface in physical_interfaces %}
+    <div class="container">
+
+        {% if interface.column == 1 %}
+            Row 1
+        {% endif %}
+        
+        {% if interface.column == 2 %}
+            Row 2
+        {% endif %}
+
+
+
+        <li class="collection-item">
+            {{ interface["name"]}}
+            <!-- Dropdown Trigger -->
+            <a class='dropdown-trigger btn right' href='#' data-target='dropdown{{interface["number"]}}'>Drop Me!</a>
+            <!-- Dropdown Structure -->
+            <ul id='dropdown{{interface["number"]}}' class='dropdown-content'>
+                <li><a href="#!">VLAN</a></li>
+                <li><a href="#!">Shutdown</a></li>
+                <!-- <form action="/localhost" method="post" ><li><a name="interface" value="{{interface["name"]}}" type="submit">PING LOCALHOST</a></li></form> -->
+                <li>
+                    <form  target="#!" method="post">
+                        <input type="submit" value="Submit">
+
+                    </form>
+                </li>
+            </ul>
+        </li>
+    </div>
+    <p>
+        {% endfor %}
+</ul>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.dropdown-trigger');
+        var instances = M.Dropdown.init(elems);
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,12 @@
+# cisco.ios.ios_ping
+- name: test ansible
+  hosts: "{{ host_list }}"
+  gather_facts: false
+  tasks:
+    - ios_facts:
+        # dest: host
+
+  # hosts: "{{ hosts }}"
+  # gather_facts: false
+  # tasks:
+  #   - ping:
