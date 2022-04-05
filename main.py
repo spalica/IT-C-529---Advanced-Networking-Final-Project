@@ -43,7 +43,7 @@ def main():
         vlan = request.args.get('vlan')
         run = run_playbook(PLAYBOOK_ROOT + 'cisco_ping.yml', {'host_list': f'{host}', 'vlan': f'{vlan}'})
         return render_template('interfaces.html')
-    //?
+    # ?
     @app.route('/vlan/<host>', methods=['GET'])
     def add_vlan_to_interface(host):
         vlan = request.args.get('vlan')
