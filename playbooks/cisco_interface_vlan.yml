@@ -1,12 +1,8 @@
-- name: Add VLAN to an interface
-  hosts: "{{ host_list }}"
+- name: stuff
+  hosts: "{{host_list}}"
   gather_facts: false
   tasks:
-    - ios_interfaces:
-        config:
-          - name: "{{interface}}"
-            mode: access
-            access:
-              vlan: "{{vlan}}"
-            state: active
-            shutdown: disabled
+    - ios_config:
+        lines:
+          - switchport access vlan {{vlan}}
+        parents: interface {{interface}}

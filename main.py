@@ -20,7 +20,7 @@ def run_playbook(playbook_path: str, ansible_vars: dict):
     return runner
 
 
-PLAYBOOK_ROOT = '/home/pi/IT&C 529 - Advanced Networking Final Project/playbooks/'
+PLAYBOOK_ROOT = '/home/spalica/Desktop/IT&C 529 - Advanced Networking Final Project/playbooks/'
 
 def main():
     app = Flask(__name__)
@@ -38,17 +38,19 @@ def main():
         return render_template('interfaces.html')
 
 
-    @app.route('/vlan/<host>', methods=['GET'])
-    def add_vlan(host):
-        vlan = request.args.get('vlan')
-        run = run_playbook(PLAYBOOK_ROOT + 'cisco_ping.yml', {'host_list': f'{host}', 'vlan': f'{vlan}'})
-        return render_template('interfaces.html')
+    # @app.route('/vlan/<host>', methods=['GET'])
+    # def add_vlan(host):
+    #     vlan = request.args.get('vlan')
+    #     run = run_playbook(PLAYBOOK_ROOT + 'cisco_ping.yml', {'host_list': f'{host}', 'vlan': f'{vlan}'})
+    #     return render_template('interfaces.html')
     # ?
     @app.route('/vlan/<host>', methods=['GET'])
     def add_vlan_to_interface(host):
         vlan = request.args.get('vlan')
         interface = request.args.get('interface')
+        # print(f'Hosts:\n{host}\nvlan:')
         run = run_playbook(PLAYBOOK_ROOT + 'cisco_interface_vlan.yml', {'host_list': f'{host}', 'vlan': f'{vlan}', 'interface': f'{interface}'})
+        # print(f'Running playbook: ')
         return render_template('interfaces.html')
 
     @app.route('/<host>', methods=['GET'])
